@@ -1,0 +1,8 @@
+<div>
+  <% @questions.each do |question_object| %>
+    <p><%= question_object.question %></p>
+    <% question_object.answers.each do |answer_object| %>
+      <p><%= answer_object.answer %></p>
+    <% end %>
+  <% end %>
+</div>

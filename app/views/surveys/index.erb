@@ -1,0 +1,17 @@
+<%= erb :_header %>
+<% if @questions %>
+  <%= erb :'/surveys/_show_questions', local: {questions: @questions}%>
+<% elsif @user %>
+  <!-- <%= erb :'/surveys/_new', local: {user: @user} %> -->
+  <%= erb :'/surveys/_new' %>
+<% elsif %>
+  <%= erb :'/surveys/_new_questions', local: {survey: @survey}%>
+<% else %>
+<div>
+  <% @surveys.each do |survey| %>
+  <p> <a href="/surveys/<%= survey.id %>"> <%= survey.title %></a></p>
+  <% end %>
+  <a href="/surveys/new"><button name="new_survey">Create new survey</button></a>
+</div>
+<% end %>
+<%= erb :_footer %>
