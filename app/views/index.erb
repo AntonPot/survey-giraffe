@@ -11,5 +11,17 @@
     <input type="text" name="password" placeholder="123qwe" />
     <input type="submit" class="submit" />
   </form>
+
+  <div class="modal">
+    <h2>
+    <form action='/session' method='post'>
+      <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input type='email' name='email' placeholder='survey@giraffe.com' /><br>
+      <label>Password</label>
+      <input type='text' name='password' placeholder='giraffe' /><br>
+      <input class='login-button' type='submit' value='submit' />
+    </form>
+  </div>
+
 <% end %>
 <%= erb :_footer %>

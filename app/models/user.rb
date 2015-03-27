@@ -1,3 +1,4 @@
+require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
@@ -10,6 +11,19 @@ class User < ActiveRecord::Base
 
   validates :name, :password_hash, presence: true
 
+  # def password
+  #   @password ||= Password.new(password_hash)
+  # end
+
+  # def password=(new_password)
+  #   @password = Password.create(new_password)
+  #   self.password_hash = @password
+  # end
+
+  # def authenticate
+  #   self.password == @password
+  # end
+
   def password
     @password ||= Password.new(password_hash)
   end
@@ -19,7 +33,7 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def authenticate
-    self.password == @password
+  def authenticate(user_input)
+    self.password == user_input
   end
 end

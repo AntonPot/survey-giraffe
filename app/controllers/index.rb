@@ -14,20 +14,20 @@ post '/' do
   end
 end
 
-post '/sessions' do
-  user = User.where(email: params[:email]).first
-
-  if user && user.password == params[:password]
-    session[:user_id] = user.user_id
+post '/session' do
+  if current_user && current_user.authenticate(params[:password])
+    session[:user_id] = current_user.id
+    status 200
+    # redirect '/'
     erb :index
   else
     status 400
-    @error = user.errors.full_messages.to_sentence
+    current_user.errors.full_messages.to_sentence
   end
 
 end
 
-delete '/sessions/delete' do
-  sessions.delete(:user_id)
+delete '/session/delete' do
+  session.delete(:user_id)
   redirect '/'
 end

@@ -19,7 +19,7 @@ header {
   margin-right: 10px;
 }
 
-.home-button a{
+.home-button a, .signout{
   color: #FFFFFF;
   text-decoration: none;
   margin: 0 15px;
@@ -28,7 +28,10 @@ header {
   border-radius: 10px;
 }
 
-.home-button a:hover{
+.signout{
+  border: none;
+}
+.home-button a:hover, .signout:hover{
   background-color: #333333;
 }
 
@@ -49,7 +52,6 @@ h1{
 
 .submit:hover{
   background-color: #FFFFFF;
-  border:
 }
 footer{
   text-align: center;
@@ -60,4 +62,13 @@ footer{
   height: auto;
   width: 100%;
   vertical-align: text-center;
+}
+
+
+/*=========================
+    Modal Window
+==========================*/
+
+.modal{
+  display: none;
 }

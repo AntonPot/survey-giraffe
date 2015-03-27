@@ -1,7 +1,7 @@
 helpers do
 
   def current_user
-    User.find(session[:user_id]) if session[:user_id]
+    User.where(email: params[:email]).first
   end
 
 end
