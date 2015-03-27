@@ -1,9 +1,15 @@
 <%= erb :_header %>
 <h1>Welcome to Survey Giraffe</h1>
-<form action"/users/new" method="post" class="signup-form">
-  <input type="text" name="name" placeholder="Deb Wolfe" />
-  <input type="text" name="email" placeholder="Mike@dbc.com" />
-  <input type="text" name="password" placeholder="123qwe" />
-  <input type="submit" class="submit" />
-</form>
+<% if current_user %>
+  <ul>
+    <li><%= @surveys %></li>
+  </ul>
+<% else %>
+  <form action"/" method="post" class="signup-form">
+    <input type="text" name="name" placeholder="Deb Wolfe" />
+    <input type="text" name="email" placeholder="Mike@dbc.com" />
+    <input type="text" name="password" placeholder="123qwe" />
+    <input type="submit" class="submit" />
+  </form>
+<% end %>
 <%= erb :_footer %>

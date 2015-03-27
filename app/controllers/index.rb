@@ -2,7 +2,7 @@ get '/' do
   erb :index
 end
 
-post '/users/new' do
+post '/' do
   user = User.new(name: params[:name], email: params[:email], password: params[:password])
 
   if user.save
@@ -18,7 +18,7 @@ post '/sessions' do
   user = User.where(email: params[:email]).first
 
   if user && user.password == params[:password]
-    sessions[:user_id] = user.user_id
+    session[:user_id] = user.user_id
     erb :index
   else
     status 400
@@ -27,3 +27,7 @@ post '/sessions' do
 
 end
 
+delete '/sessions/delete' do
+  sessions.delete(:user_id)
+  redirect '/'
+end
