@@ -1,6 +1,6 @@
 <div>
   <% @questions.each do |question_object| %>
-    <p><%= question_object.question %></p>
+    <h4><%= question_object.question %></h4>
     <% question_object.answers.each do |answer_object| %>
       <p><%= answer_object.answer %></p>
     <% end %>
