@@ -68,18 +68,22 @@
 .modal input{
   margin: 15px;
   top: 15px;
+  height: 35px;
+  width: 200px;
+  font-size: 14px;
 }
 .modal input::-webkit-input-placeholder{
    font-size: 16px;
    position: relative;
-   top:5px;
+   /*top:5px;*/
 }
 .modal .login-button{
     border-radius:5px;
     background-color:#FFFFFF;
     color: #000000;
     border: 1px solid black;
-    padding: 10px 20px;
+    width: 130px;
+    font-size: 20px;
 }
 
 .modal .login-button:hover{
