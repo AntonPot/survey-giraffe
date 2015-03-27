@@ -15,11 +15,11 @@ post '/' do
 end
 
 post '/session' do
-  if current_user && current_user.authenticate(params[:password])
-    session[:user_id] = current_user.id
+  user = User.where(email: params[:email]).first
+  if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
     status 200
-    # redirect '/'
-    erb :index
+    redirect '/'
   else
     status 400
     current_user.errors.full_messages.to_sentence
