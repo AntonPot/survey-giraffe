@@ -19,7 +19,7 @@ post '/sessions' do
 
   if user && user.password == params[:password]
     session[:user_id] = user.user_id
-    erb :index
+    redirect '/surveys'
   else
     status 400
     @error = user.errors.full_messages.to_sentence
