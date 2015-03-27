@@ -72,3 +72,10 @@ footer{
 .modal{
   display: none;
 }
+.answer-button{
+  margin-right: 5px;
+}
+.survey{
+  width: 500px;
+  margin: 0 auto
+}
