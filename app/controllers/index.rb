@@ -16,13 +16,13 @@ end
 
 post '/session' do
   user = User.where(email: params[:email]).first
-  if user && user.authenticate(params[:password])
-    session[:user_id] = user.id
-    status 200
-    redirect '/'
+
+  if user && user.password == params[:password]
+    session[:user_id] = user.user_id
+    redirect '/surveys'
   else
     status 400
-    current_user.errors.full_messages.to_sentence
+    user.errors.full_messages.to_sentence
   end
 
 end

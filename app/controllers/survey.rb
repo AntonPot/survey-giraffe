@@ -1,9 +1,9 @@
 get '/surveys' do
-  if current_user
-    @my_surveys = Survey.where(user_id: current_user.id)
+  if session[:user_id]
+    @my_surveys = Survey.where(user_id: session[:user_id])
   end
   @surveys = Survey.all
-
+  # p "hello #{current_user}"
   erb :'/surveys/index'
 end
 
