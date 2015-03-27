@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   include BCrypt
+
+  has_many :surveys
+  has_many :responses
+
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   validates :email, presence: true, uniqueness: true
@@ -12,6 +16,10 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @password = Password.create(new_password)
-    self.password = @password
+    self.password_hash = @password
+  end
+
+  def authenticate
+    self.password == @password
   end
 end
