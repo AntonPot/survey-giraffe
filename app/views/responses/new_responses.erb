@@ -1,0 +1,26 @@
+<div>
+    <h4><%= question_object.question %></h4>
+    <% question_object.answers.each do |answer_object| %>
+      <p><%= answer_object.answer %></p>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div>
+  <h2>Subimt your answers for survey: <%= @survey.title %></h2>
+  <% @questions.each_with_index do |question_object, index| %>
+  <h4>Enter choices for question: <%= question_object.question %></h4>
+  <form action="/responses" method="post" class="signup-form">
+    <label>Choices</label>
+    <input type="radio" name="question<%= index %>">
+    <input type="radio" name="question<%= index %>">
+    <input type="radio" name="question<%= index %>">
+    <input type="radio" name="question<%= index %>">
+    <input type="radio" name="question<%= index %>">
+    <input type="hidden" name="question_id" value="<%= question.id %>">
+    <input type="submit" value="Add choices" class="submit">
+  </form>
+</div>
+
+
