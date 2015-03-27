@@ -1,10 +1,11 @@
 <header>
-  <div class="logo">
-    Giraffe
-  </div>
+  <a href="/">
+    <div class="logo">
+      Giraffe
+    </div>
+  </a>
   <% if current_user %>
     <div class='home-button'>
-      <!-- <a class='signout' href="/session/delete">Sign Out</a> -->
       <form class='signout-form' action='/session/delete' method='post'>
       <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Sign Out" class="signout">
