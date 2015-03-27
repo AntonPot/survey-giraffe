@@ -85,3 +85,9 @@
 .modal .login-button:hover{
     background-color: #e4e4e4;
 }
+
+.simplemodal-close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
