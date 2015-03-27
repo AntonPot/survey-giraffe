@@ -79,3 +79,15 @@ footer{
   width: 500px;
   margin: 0 auto
 }
+.survey .submit a{
+  text-decoration: none;
+  color: #000000;
+}
+.survey .submit{
+  padding: 10px 20px;
+  border: none;
+  margin-bottom: 20px;
+}
+.survey .submit:hover{
+  background-color: #999999;
+}
